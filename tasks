@@ -1,0 +1,30 @@
+3) notificacao-service — Tarefas
+Core
+
+ Consumir evento delivery.estimated.
+
+ Enviar e-mail usando:
+
+SMTP fake (MailHog) ou
+
+SendGrid mockado
+
+ Persistir histórico de notificações em notificacao-db.
+
+Retries
+
+ Implementar retry automático com Resilience4j.
+
+ Implementar fallback → registrar notificação pendente.
+
+Infra
+
+ Expor healthcheck do serviço de e-mail.
+
+ Criar tabela de “notificações pendentes” para reprocessamento.
+
+Testes
+
+ Testcontainers com Kafka + Mongo/PostgreSQL.
+
+ Teste end-to-end: evento → envio de e-mail → persistência.
